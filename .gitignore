@@ -1,3 +1,4 @@
+.parcel-cache/*
 node_modules
 .cache
 .parcel-cache/f6/52aa6669245e86a70698025250766f.blob
