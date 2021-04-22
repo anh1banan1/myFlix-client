@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import './login-view.scss';
+
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+
 export function LoginView(props) {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
@@ -14,17 +19,34 @@ export function LoginView(props) {
   };
 
   return (
-    <form>
-      <label>
-        Username:
-        <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
-      </label>
-      <label>
-        Password:
-        <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
-      </label>
-      <button type="submit" onClick={handleSubmit}>Submit</button>
-    </form>
+    <React.Fragment>
+      <Form className='form-login'>
+        <h1 className='text-danger'>Welcome to mooflix!</h1>
+        <p className='mb-5'>Please login.</p>
+        <Form.Group controlId='formBasicEmail'>
+          <Form.Label>Username</Form.Label>
+          <Form.Control
+            type='text'
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            placeholder='Enter Username'
+          />
+        </Form.Group>
+        <Form.Group controlId='formBasicPassword'>
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            type='password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            type='password'
+            placeholder='Enter Password'
+          />
+        </Form.Group>
+        <Button onClick={handleSubmit} variant='primary' type='submit'>
+          Submit
+        </Button>
+      </Form>
+    </React.Fragment>
   );
 }
 
