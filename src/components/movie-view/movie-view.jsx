@@ -1,6 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './movie-view.scss';
+
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+
 export class MovieView extends React.Component {
     constructor() {
         super();
@@ -23,29 +28,29 @@ export class MovieView extends React.Component {
         const { movie, onBackClick } = this.props;
 
     return (
-      <div className="movie-view">
-        <div className="movie-poster">
-          <img src={movie.ImagePath} />
-        </div>
-        <div className="movie-title">
-          <span className="label">Title: </span>
-          <span className="value">{movie.Title}</span>
-        </div>
-        <div className="movie-description">
-          <span className="label">Description: </span>
-          <span className="value">{movie.Description}</span>
-        </div>
-        <div className="genre">
-          <span className="label">Genre: </span>
-          <span className="value">{movie.Genre}</span>
-        </div>
-        <div className="director">
-          <span className="label">Director: </span>
-          <span className="value">{movie.Director}</span>
-        </div>
-        <button onClick={() => { onBackClick(null); }}>Back</button>
-
-       </div>
+        <div className='movie-view'>
+        <Card style={{ width: '18rem' }}>
+          <Card.Img variant='top' src={movie.imagePath} />
+          <Card.Body>
+            <Card.Title>{movie.title}</Card.Title>
+            <Card.Text>
+              <span className='label text-danger'>Description: </span>
+              <span className='value'>{movie.description}</span>
+            </Card.Text>
+            <Card.Text>
+              <span className='label text-danger'>Genre: </span>
+              <span className='value'>{movie.genre.name}</span>
+            </Card.Text>
+            <Card.Text>
+              <span className='label text-danger'>Director: </span>
+              <span className='value'>{movie.director.name}</span>
+            </Card.Text>
+            <Button onClick={() => onClick()} variant='primary'>
+              Back
+            </Button>
+          </Card.Body>
+        </Card>
+      </div>
     );
   }
 }
