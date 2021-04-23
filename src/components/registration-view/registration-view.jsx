@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 import './registration-view.scss';
 
@@ -14,10 +15,24 @@ export function RegistrationView(props){
   const [birthday, setBirthday] = useState('');
 
 
-  const handleSubmit = (e) => {
+  const handleRegister = (e) => {
     e.preventDefault();
-    console.log(username, password, email, birthday);
-    props.onRegister('test');
+
+    axios
+      .post(`https://mooflix.herokuapp.com/users`, {
+        Username: username,
+        Email: email,
+        Password: password,
+        Birthday: birthday,
+      })
+      .then((response) => {
+        const data = response.data;
+        console.log(data);
+        window.open("/", "_self");
+      })
+      .catch((e) => {
+        console.log('error registering the user');
+      });
   };
  
   return (
