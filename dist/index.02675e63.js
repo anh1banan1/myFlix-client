@@ -34405,7 +34405,7 @@ try {
           columnNumber: 11
         }
       })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapButtonDefault.default, {
-        onClick: handleSubmit,
+        onClick: handleRegister,
         variant: "primary",
         type: "submit",
         __self: this,
