@@ -7,7 +7,7 @@ import './login-view.scss';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-export function LoginView(props) {
+function LoginView(props) {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
 
@@ -58,6 +58,8 @@ export function LoginView(props) {
     </React.Fragment>
   );
 }
+
+export default connect(null, { setUser })(LoginView);
 
 LoginView.propTypes = {
     user: PropTypes.shape({
