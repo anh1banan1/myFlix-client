@@ -85,7 +85,7 @@ export function RegistrationView(props){
             placeholder='Enter Birthday'
           />
         </Form.Group>
-        <Button onClick={handleSubmit} variant='primary' type='submit'>
+        <Button onClick={handleRegister} variant='primary' type='submit'>
           Submit
         </Button>
       </Form>
